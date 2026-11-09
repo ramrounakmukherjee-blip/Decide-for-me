@@ -1,0 +1,6 @@
+{
+  "name": "Decide For Me",
+  "description": "A hyper-rational decision assistant that evaluates dilemmas against your life priorities using clinical decision logic, trade-off matrices, and regret minimization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

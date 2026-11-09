@@ -1,0 +1,51 @@
+{
+  "entities": {
+    "users": {
+      "title": "Users",
+      "description": "User profiles",
+      "properties": {
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "decisions": {
+      "title": "Decisions",
+      "description": "Saved decision evaluations for users",
+      "properties": {
+        "userId": { "type": "string" },
+        "dilemma": { "type": "string" },
+        "optionA": { "type": "string" },
+        "optionB": { "type": "string" },
+        "extraOptions": { "type": "array" },
+        "userProsCons": { "type": "array" },
+        "recommendedOption": { "type": "string" },
+        "confidenceScore": { "type": "number" },
+        "verdictHeadline": { "type": "string" },
+        "executiveSummary": { "type": "string" },
+        "priorityAlignment": { "type": "array" },
+        "optionAAnalysis": { "type": "object" },
+        "optionBAnalysis": { "type": "object" },
+        "tradeOffWarnings": { "type": "array" },
+        "timestamp": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    }
+  },
+  "security": [
+    {
+      "collection": "users/{userId}",
+      "rules": {
+        "read": "request.auth != null && request.auth.uid == userId",
+        "write": "request.auth != null && request.auth.uid == userId"
+      }
+    },
+    {
+      "collection": "users/{userId}/decisions/{decisionId}",
+      "rules": {
+        "read": "request.auth != null && request.auth.uid == userId",
+        "write": "request.auth != null && request.auth.uid == userId"
+      }
+    }
+  ]
+}
